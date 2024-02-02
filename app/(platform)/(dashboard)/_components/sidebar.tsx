@@ -15,9 +15,10 @@ import { NavItem, Organization } from "./nav-item";
 
 type SidebarProps = {
    storageKey?: string;
+   isPremium: boolean;
 };
 
-export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
+export const Sidebar = ({ isPremium, storageKey = "t-sidebar-state" }: SidebarProps) => {
    const [loading, setLoading] = useState(false);
 
    const [expended, setExpended] = useLocalStorage<Record<string, any>>(storageKey, {});
@@ -80,9 +81,11 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
             </Accordion>
          </div>
 
-         <Button size="lg" disabled={loading} className="w-full">
-            Upgrade To Premium
-         </Button>
+         {!isPremium && (
+            <Button size="lg" disabled={loading} className="w-full" onClick={handleSubmit}>
+               Upgrade To Premium
+            </Button>
+         )}
       </aside>
    );
 };

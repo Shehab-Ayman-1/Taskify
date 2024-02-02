@@ -32,7 +32,7 @@ const MobileSidebar = () => {
 
          <Sheet open={isOpen} onOpenChange={onClose}>
             <SheetContent side="left" className="z-[1001] h-full p-2 pt-10">
-               <Sidebar storageKey="t-sidebar-mobile-state" />
+               <Sidebar isPremium={true} storageKey="t-sidebar-mobile-state" />
             </SheetContent>
          </Sheet>
       </div>
