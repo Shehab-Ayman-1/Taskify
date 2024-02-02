@@ -12,8 +12,8 @@ export async function generateMetadata() {
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
    return (
-      <main className="px-4 pt-20">
-         <div className="flex-around items-start">
+      <main className="h-full px-4 pb-5 pt-20">
+         <div className="flex-around h-full items-start">
             <div className="hidden h-full w-64 shrink-0 md:block">
                <Sidebar />
             </div>

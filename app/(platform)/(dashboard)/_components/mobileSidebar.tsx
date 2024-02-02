@@ -31,7 +31,7 @@ const MobileSidebar = () => {
          </Button>
 
          <Sheet open={isOpen} onOpenChange={onClose}>
-            <SheetContent side="left" className="z-[1001] p-2 pt-10">
+            <SheetContent side="left" className="z-[1001] h-full p-2 pt-10">
                <Sidebar storageKey="t-sidebar-mobile-state" />
             </SheetContent>
          </Sheet>
