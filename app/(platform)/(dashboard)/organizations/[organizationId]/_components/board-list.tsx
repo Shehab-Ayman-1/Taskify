@@ -29,7 +29,7 @@ export const BoardList = async () => {
          </div>
 
          <div className="md:grid-cols:4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            <FormPopover sideOffset={10} side="right">
+            <FormPopover sideOffset={10} side="bottom">
                <div
                   role="button"
                   className="flex-center relative aspect-video h-full w-full flex-col gap-y-1 rounded-md bg-muted-foreground/10 text-slate-500 shadow-sm transition hover:bg-muted-foreground/15"

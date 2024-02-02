@@ -25,7 +25,7 @@ const Navbar = () => {
          <div className="flex-start">
             <MobileSidebar />
             <Logo />
-            <FormPopover side="bottom" align="start" sideOffset={18}>
+            <FormPopover side="bottom" align="center" sideOffset={18}>
                <NavbarButtons btn1={BUTTONS.btn1} btn2={BUTTONS.btn2} />
             </FormPopover>
          </div>
