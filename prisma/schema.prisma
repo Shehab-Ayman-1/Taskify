@@ -1,0 +1,94 @@
+// [1] npx prisma generate
+// [2] npx prisma db push
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Board {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  orgId String
+  title String @unique
+
+  imageId       String
+  imageThumbUrl String
+  imageFullUrl  String
+  imageUsername String
+  imageLinkHtml String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lists List[]
+}
+
+model List {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  title String
+  order Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  boardId String @db.ObjectId
+  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+
+  cards Card[]
+
+  @@index([boardId])
+}
+
+model Card {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  title       String
+  order       Int
+  description String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  listId String @db.ObjectId
+  list   List   @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@index([listId])
+}
+
+enum ACTION {
+  COPY
+  CREATE
+  UPDATE
+  DELETE
+}
+
+enum ENTITY_TYPE {
+  BOARD
+  LIST
+  CARD
+}
+
+model Activity {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  orgId    String
+  entityId String
+  userId   String
+
+  userImage   String
+  username    String
+  entityTitle String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  action     ACTION
+  entityType ENTITY_TYPE
+}
