@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
 import { stripeRedirect } from "@/utils/subscriptions";
 import { NavItem, Organization } from "./nav-item";
+import { Separator } from "@/components/ui/separator";
 
 type SidebarProps = {
    storageKey?: string;
@@ -61,12 +62,14 @@ export const Sidebar = ({ isPremium, storageKey = "t-sidebar-state" }: SidebarPr
             <div className="flex-start mb-1 text-sm font-medium">
                <h3 className="text-base font-bold">Workspaces</h3>
 
-               <Button type="button" size="icon" variant="ghost" className="ml-auto" asChild>
+               <Button type="button" size="sm" variant="ghost" className="ml-auto mr-1.5 p-0" asChild>
                   <Link href="/select-org">
                      <PlusIcon className="h-4 w-4" />
                   </Link>
                </Button>
             </div>
+
+            <Separator className="mb-4 h-0.5 bg-gray-300" />
 
             <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
                {userMemberships.data.map(({ organization }) => (

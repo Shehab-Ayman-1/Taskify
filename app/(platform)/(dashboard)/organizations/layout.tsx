@@ -17,7 +17,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
    return (
       <main className="h-full px-4 pb-5 pt-20">
-         <div className="flex-around h-full items-start">
+         <div className="flex-between h-full items-start">
             <div className="hidden h-full w-64 shrink-0 md:block">
                <Sidebar isPremium={isPremium} />
             </div>

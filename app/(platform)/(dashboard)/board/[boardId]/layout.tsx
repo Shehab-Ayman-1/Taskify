@@ -30,7 +30,7 @@ const Layout = async ({ params, children }: LayoutType) => {
          />
          <main className="pt-14">
             <BoardNavbar {...board} />
-            <section className="mx-auto max-w-7xl">{children}</section>
+            <section className="">{children}</section>
          </main>
       </div>
    );
