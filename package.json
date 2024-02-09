@@ -9,7 +9,8 @@
       "lint": "next lint",
       "postinstall": "prisma generate",
       "add": "npx shadcn-ui@latest add",
-      "studio": "npx prisma studio"
+      "studio": "npx prisma studio",
+      "deploy": "git ad && git co && git pm"
    },
    "dependencies": {
       "@clerk/nextjs": "^4.29.5",
